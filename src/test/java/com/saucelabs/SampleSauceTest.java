@@ -19,6 +19,7 @@ import com.saucelabs.junit.SauceOnDemandTestWatcher;
 
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -161,11 +162,17 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         WebElement button = driver.findElement(By.name("btnG"));
         button.click();
         
-        // Make sure saucelabs.com is the first hit
+        // Make sure saucelabs.com is under the first hits
         (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
-                WebElement h3 = d.findElement(By.tagName("h3"));
-                return h3.getText().equals("Sauce Labs: Selenium Testing, Mobile Testing, JS Unit Testing and ...");
+                List<WebElement> h3s = d.findElements(By.tagName("h3"));
+                for (WebElement h3 : h3s) {
+					String actual = h3.getText();
+					if (actual.contains("Sauce Labs: Selenium Testing, Mobile Testing, JS Unit Testing and")) {
+						return true;
+					}
+				}
+				return false;
             }
         });
     }
