@@ -144,6 +144,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
      * Runs a simple test verifying the title of the amazon.com homepage.
      * @throws Exception
      */
+    @Test
     public void amazon() throws Exception {
         driver.get("http://www.amazon.com/");
         assertEquals("Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more", driver.getTitle());
@@ -207,7 +208,6 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
 					str = "";
 				}
 
-				System.out.println(str);
 				return str.contains("Page 2 of about ");
             }
         });
