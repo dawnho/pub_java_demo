@@ -199,10 +199,16 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
     	
         (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
-                WebElement results = driver.findElement(By.id("resultStats"));
-            	String str = results.getText();
-            	
-                return str.contains("Page 2 of about ");
+				String str = "'";
+				try {
+				    WebElement results = driver.findElement(By.id("resultStats"));
+					str = results.getText();
+				} catch (Exception e) {
+					str = "";
+				}
+
+				System.out.println(str);
+				return str.contains("Page 2 of about ");
             }
         });
     }
