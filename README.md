@@ -12,7 +12,7 @@ git clone https://github.com/saucelabs/java-sauce-example.git && cd java-sauce-e
 Then run the following command to build the project and run the assocaited tests (requires Maven to be installed in your PATH):
 
 ```bash
-mvn
+mvn test
 ```
 
 ### Example CI integration

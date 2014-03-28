@@ -139,19 +139,9 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
         this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
 
     }
-
-    /**
-     * Runs a simple test verifying the title of the amazon.com homepage.
-     * @throws Exception
-     */
-    @Test
-    public void amazon() throws Exception {
-        driver.get("http://www.amazon.com/");
-        assertEquals("Amazon.com: Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more", driver.getTitle());
-    }
     
     /**
-     * Opens google and searches for Sauce Labs.
+     * Opens google and searches for Sauce Labs. Then asserts that the Sauce Labs' website in the top 10 hit list. 
      * @throws Exception
      */
     private static void googleSauce(WebDriver driver) {
@@ -179,7 +169,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
     }
 
     /**
-     * Opens google and searches for Sauce Labs.
+     * Test: Opens google and searches for Sauce Labs.
      * @throws Exception
      */
     @Test
@@ -188,7 +178,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
     }
 
     /**
-     * Opens google and searches for Sauce Labs.
+     * Test: Opens google and searches for Sauce Labs. Then pages to page two of the search results.
      * @throws Exception
      */
     @Test
