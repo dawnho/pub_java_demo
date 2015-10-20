@@ -159,7 +159,7 @@ public class SampleSauceTest implements SauceOnDemandSessionIdProvider {
                 List<WebElement> h3s = d.findElements(By.tagName("h3"));
                 for (WebElement h3 : h3s) {
 					String actual = h3.getText();
-					if (actual.contains("Sauce Labs: Selenium Testing, Mobile Testing, JS Unit Testing and")) {
+					if (actual.contains("Sauce Labs: Selenium Testing, Mobile Testing, JS")) {
 						return true;
 					}
 				}
